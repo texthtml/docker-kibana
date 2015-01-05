@@ -1,0 +1,10 @@
+#!/bin/bash
+ES_HOST=${ES_HOST:-\"+window.location.hostname+\"}
+ES_PORT=${ES_PORT:-9200}
+ES_SCHEME=${ES_SCHEME:-http}
+
+cat /opt/local/kibana/config.js.tpl | \
+    sed "s/\$ES_HOST/$ES_HOST/;s/\$ES_SCHEME/$ES_SCHEME/;s/\$ES_PORT/$ES_PORT/" \
+    > /opt/local/kibana/kibana-3.1.0/config.js
+
+nginx -c /etc/nginx/nginx.conf -g 'daemon off;'
