@@ -1,4 +1,4 @@
-FROM nginx:1.28
+FROM nginx:1.29
 MAINTAINER Mathieu Rochette "mathieu@texthtml.net"
 
 EXPOSE 80
